@@ -65,6 +65,7 @@
         }
         body {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100vh;
@@ -101,7 +102,7 @@
          @keyframes morphShape {
             0% {border-radius: 0%; transform: rotate(0deg);}
             50% {border-radius: 50%; transform: rotate(180deg);}
-            100% {border-radius: 0%; transform: rotate(360deg);}
+            100% {border-radius: 100%; transform: rotate(360deg);}
         }
     </style>
 </head>
@@ -117,7 +118,11 @@
 
     <!-- Assignment: Create a CSS animation that transforms a shape (e.g., a square to a circle) and apply it to the .shape element. -->
 
-    <div class="shape"></div>
+    
+      <div>
+        <div class="shape"></div>
+      </div>
+
 
     <div class="card">
             <h2>Card Title</h2>
