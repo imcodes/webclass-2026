@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Layout</title>
+
+    <link href="assets/vendors/bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="assets/vendors/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> -->
+
+
+    <!-- bootstrap icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body class="" data-bs-theme="light">
+
+    <nav class="navbar navbar-light bg-light fixed-top mb-5">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                        My App
+                    </h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">Services</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                <a class="dropdown-item" href="#">Baber shop 1</a>
+                                <a class="dropdown-item" href="#">Service 2</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                        <button class="btn btn-outline-success" type="submit">
+                            Search
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carousel -->
+    <div id="carouselExample" class="carousel slide " data-bs-ride="carousel" >
+        <div class="carousel-inner border border-3 border-primary" style="height: 80vh;">
+            <div class="carousel-item h-100">
+                <img src="images/Portharcourt Nigeria.jpg" class="d-block w-100 h-100" alt="...">
+            </div>
+            <div class="carousel-item h-100">
+                <img src="images/Lagos Nigeria.jpg" class="d-block w-100 h-100" alt="...">
+            </div>
+            <div class="carousel-item h-100 active">
+                <img src="images/Smart Cities - Anambra.webp" class="d-block w-100 h-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="container-fluid mt-5 border border-2 border-primary rounded-3">
+        <h1 class="text-center text-light p-2 bg-primary my-4">Bootstrap Layout Example <i
+                class="bi bi-arrow-through-heart"></i></h1>
+
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-xl-3 border border-2 border-success rounded-3 p-4 m-2">
+                <h2 class="text-center text-light p-2 bg-success my-4">Column 1</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xl-3 border border-2 border-warning rounded-3 p-4 m-2">
+                <h2 class="text-center text-light p-2 bg-warning my-4">Column 2</h2>
+                <p>Phasellus molestie magna non est bibendum non venenatis nisl tempor.</p>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xl-3 border border-2 border-danger rounded-3 p-4 m-2">
+                <h2 class="text-center text-light p-2 bg-danger my-4">Column 3</h2>
+                <p>Fusce lacinia arcu et nulla. Nulla vitae mauris non felis mollis faucibus.</p>
+            </div>
+            <!-- <div class="col-md-3 border border-2 border-danger rounded-3 p-4 m-2">
+                <h2 class="text-center text-light p-2 bg-danger my-4">Column 4</h2>
+                <p>Fusce lacinia arcu et nulla. Nulla vitae mauris non felis mollis faucibus.</p>
+            </div> -->
+
+        </div>
+
+    </div>
+
+    <!-- Bootstrap card -->
+
+    <section class="container mt-5">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card border border-2 border-primary text-bg-primary">
+                    <img src="images/lagos Nigeria.jpg" class="card-img-top" alt="Card Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-outline-light">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
