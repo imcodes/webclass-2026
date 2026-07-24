@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Demo</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #292929;
+            color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to JavaScript Demo</h1>
+    <p>A simple For loop demonstration</p>
+    <table width="90%" border>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Major</th>
+            </tr>
+        </thead>
+
+        <tbody id="output">
+            <!-- Student data will be inserted here -->
+        </tbody>
+        
+
+    </table>
+
+
+
+    <script>
+        const outputElement = document.getElementById('output');
+        const studentLists = [
+            { name: 'John Doe', age: 20, major: 'Computer Science' },
+            { name: 'Jane Smith', age: 22, major: 'Mathematics' },
+            { name: 'Alice Johnson', age: 19, major: 'Physics' },
+            { name: 'Bob Brown', age: 21, major: 'Chemistry' }
+        ];
+        let data = ''
+
+        for (let counter = 0; counter < studentLists.length; counter++){
+            const student = studentLists[counter];
+            data += `<tr>
+                <td>${student.name}</td>
+                <td>${student.age}</td>
+                <td>${student.major}</td>
+            </tr>`;
+        }
+        outputElement.innerHTML = data;
+    </script>
+</body>
+</html>
