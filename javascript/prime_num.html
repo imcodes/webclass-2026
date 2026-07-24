@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>JavaScript Loops</h1>
+    <h2>The While Loop</h2>
+
+    <p id="demo"></p>
+
+    <script>
+        function isPrime(n) 
+        {
+            if (n <= 1) return false; // Numbers less than or equal to 1 are not prime
+            if (n === 2) return true; // 2 is prime
+            if (n % 2 === 0) return false; // Check for even numbers greater than 2
+
+            const limit = Math.floor(Math.sqrt(n)); // find the square root of n round to the nearest whole number
+            for (let d = 3; d <= limit; d += 2) {
+                if (n % d === 0) return false;
+            }
+            return true;
+        }
+
+
+        let text = "";
+
+        let start = 8;
+        let inc = 0;
+        let foundPrime = false
+        while (!foundPrime) {
+            let numb = start + inc
+            foundPrime = isPrime(numb)
+            if (foundPrime) {
+                text += "first Prime Number after " + start + " is " + numb;
+            }
+            inc++;
+        }
+
+        document.getElementById("demo").innerHTML = text
+    </script>
+
+</body>
+
+</html>

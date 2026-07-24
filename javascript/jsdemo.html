@@ -40,23 +40,39 @@
 
 
     <script>
-        const outputElement = document.getElementById('output');
+        const outputElement = document.getElementById('output')
         const studentLists = [
             { name: 'John Doe', age: 20, major: 'Computer Science' },
             { name: 'Jane Smith', age: 22, major: 'Mathematics' },
             { name: 'Alice Johnson', age: 19, major: 'Physics' },
             { name: 'Bob Brown', age: 21, major: 'Chemistry' }
-        ];
-        let data = ''
+        ]
+        let data = '';
+        
 
-        for (let counter = 0; counter < studentLists.length; counter++){
+        // FOR LOOP
+        /*for (let counter = 0; counter < studentLists.length; counter++){
             const student = studentLists[counter];
             data += `<tr>
                 <td>${student.name}</td>
                 <td>${student.age}</td>
                 <td>${student.major}</td>
             </tr>`;
+        }*/
+
+        // WHILE LOOP
+        let counter = 0;
+        while (counter < studentLists.length) { 
+            const student = studentLists[counter];
+            data += `<tr>
+                <td>${student.name}</td>
+                <td>${student.age}</td>
+                <td>${student.major}</td>
+            </tr>`;
+            counter++;
         }
+
+
         outputElement.innerHTML = data;
     </script>
 </body>
