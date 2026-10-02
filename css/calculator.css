@@ -1,0 +1,84 @@
+:root {
+    --calculator-bg-color: #000;
+    --btn-operator-bg: rgb(223, 134, 0);
+    --btn-function-bg : #555;
+    --btn-digit-bg: #333;
+    --btn-font-color: #eee;
+}
+
+body {
+    padding: 0.5rem;
+    background-color: #2e2e2e;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.calculator {
+    background-color: var(--calculator-bg-color);
+    width: 95%;
+    max-width: 300px;
+    margin: auto;
+    padding: 1rem;
+    border: 2px solid #efefef;
+    border-radius: 3rem;
+    color: var(--btn-font-color);
+    overflow: hidden;
+}
+.display {
+    text-align: right;
+    height: 12.5rem;
+    display: flex;
+    flex-direction: column;
+}
+.expression {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    flex: 2;
+}
+.expression .btn {
+    position: absolute;
+    top: 0;
+    background-color: transparent;
+    color: var(--btn-operator-bg);
+}
+.input {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    color: #afaeae;
+    font-size: clamp(100%, 150%, 250%);
+}
+.result {
+    font-size:clamp(120%, 200%, 300%);
+}
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+}
+.btn {
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    font-size: clamp(120%, 4vw, 200%);
+    border: none;
+    cursor: pointer;
+    color: var(--btn-font-color);
+    &:hover {
+        filter: brightness(1.5);
+    }
+    &:active {
+        scale: 0.95;
+    }
+}
+.btn-operator {
+    background-color: var(--btn-operator-bg);
+}
+.btn-function {
+    background-color: var(--btn-function-bg);
+}
+.btn-digit {
+    background-color: var(--btn-digit-bg);
+}

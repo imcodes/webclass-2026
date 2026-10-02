@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone Calculator</title>
+    <link rel="stylesheet" href="css/calculator.css"/>
+</head>
+<body>
+    <main class="calculator">
+        <div class="display">
+            <div class="expression">
+                <button id="btn-history" class="btn">&equiv;</button>
+                <div id="input" class="input">50,000</div>
+            </div>
+            <div id="result" class="result">0.7734</div>
+        </div>
+
+        <!-- Calculator buttons will go here -->
+         <div class="btn-grid">
+            <!-- function buttons -->
+             <button class="btn btn-function" data-action="clear">AC</button>
+             <button class="btn btn-function" data-action="toggle-sign">&PlusMinus;</button>
+             <button class="btn btn-function" data-action="percent">&percnt;</button>
+             <button class="btn btn-operator" data-value="/">&divide;</button>
+             
+             <button class="btn btn-digit" data-value="7">7</button>
+             <button class="btn btn-digit" data-value="8">8</button>
+             <button class="btn btn-digit" data-value="9">9</button>
+             <button class="btn btn-operator" data-value="*">&times;</button>
+             
+             <button class="btn btn-digit" data-value="4">4</button>
+             <button class="btn btn-digit" data-value="5">5</button>
+             <button class="btn btn-digit" data-value="6">6</button>
+             <button class="btn btn-operator" data-value="-">&minus;</button>
+             
+             <button class="btn btn-digit" data-value="1">1</button>
+             <button class="btn btn-digit" data-value="2">2</button>
+             <button class="btn btn-digit" data-value="3">3</button>
+             <button class="btn btn-operator" data-value="+">&plus;</button>
+             
+             <button class="btn btn-function" data-action="backspace">&larrb;</button>
+             <button class="btn btn-digit" data-value="0">0</button>
+             <button class="btn btn-digit" data-value=".">.</button>
+             <button class="btn btn-operator" data-value="=">&equals;</button>
+         </div>
+    </main>
+
+    <script src="javascript/calculator.js"></script>
+</body>
+</html>
