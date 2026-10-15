@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let opDigitBtns = document.querySelectorAll('.btn-operator, .btn-digit') // Get all operator and digit buttons
 
     let lastResult = null
+    // map function names to their corresponding functions
     let actions = {
         'clear': clear,
         'backspace': backspace,
@@ -25,8 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Listen for clicks on function buttons
     fnBtns.forEach((btn) => {
         btn.addEventListener('click', (event) => {
-            let action = event.target.dataset.action
-            actions[action]()
+            // Get the action from the button's data-action attribute and call the corresponding function
+            let action = event.target.dataset.action 
+            actions[action]() // Call the corresponding function based on the action
                      
             console.log(event.target.dataset.action)
             
@@ -42,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         expressionDisplay.textContent = expressionDisplay.textContent.slice(0, -1)
     }
 
+    // Calculate the percentage of the current expression and display the result
     function percent() {
         let expression = expressionDisplay.textContent
         if(expression.length == 0) return
@@ -51,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function toggleSign() {}
 
+    // Evaluate the expression and display the result
     function calculate() {
         let expression = expressionDisplay.textContent
         if(expression.length == 0) return
@@ -58,30 +62,36 @@ document.addEventListener('DOMContentLoaded', () => {
         resultDisplay.textContent = lastResult
     }
 
+    // Sanitize the expression by removing any trailing operators before evaluation
     function sanitizeExpression(expression) {
-        expression = expression.trim()
-        if (isNaN(expression.at(-1))) {
+        expression = expression.trim() // remove whitespace
+        if (isNaN(expression.at(-1))) { // check if the last character is not a number (i.e an operator)
             expression = expression.slice(0, -1) // remove last character if it's an operator
             expressionDisplay.textContent = expression
         } 
         return expression
     }
 
+    // Update the expression display (input) with new value
     function updateDisplay(value) {
         let lastChar = expressionDisplay.textContent.slice(-1)
-        if (isNaN(value)) { // operator
+        if (isNaN(value)) { // If the value is not a number (i.e., it's an operator - +,-,*,/)
            if( expressionDisplay.textContent.length == 0) return 
+           // If the last character is not a number (i.e operator) then remove it before adding the new operator
            if (isNaN(lastChar))  expressionDisplay.textContent = expressionDisplay.textContent.slice(0, -1)
-           if (lastResult !== null) {
+           // If the last result is not null, display it in the expression display and clear the result display
+            if (lastResult !== null) {
                 expressionDisplay.textContent = lastResult
                 resultDisplay.textContent = ''
                 lastResult = null
            }
         }
+        // If the last result is not null and the value is a number, clear the display before adding the new value
         if (lastResult !== null && !isNaN(value)) {
            clear()
            lastResult = null
         }
+        // Append the new value to the expression display
         expressionDisplay.textContent += value
     }
 });
