@@ -2,6 +2,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     let expressionDisplay = document.getElementById('input')
     let resultDisplay = document.querySelector('#result')
+
+    let historyBtn = document.querySelector('#btn-history')
     
     let fnBtns = document.querySelectorAll('.btn-function') // Get all function buttons (numbers, AC,%, backspace, etc)
     let opDigitBtns = document.querySelectorAll('.btn-operator, .btn-digit') // Get all operator and digit buttons
@@ -35,9 +37,32 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 
-    function clear() {
+    // Listen for clicks on our History button
+    historyBtn.addEventListener('click', event => {
+        let history = JSON.parse(localStorage.getItem('history'))
+        if (!history) return
+        let ul = document.createElement('ul')
+        ul.setAttribute('id','h-list')
+        for (let h of history) {
+            let li = document.createElement('li')
+            li.innerHTML = `<span class='h-expresson'>${h.expression}</span> <strong class='h-result'>${h.result}</strong>`
+            li.classList.add('h-item')
+            ul.appendChild(li)
+        }
+        resultDisplay.textContent = ''
+        expressionDisplay.textContent = ''
+        expressionDisplay.appendChild(ul)
+        console.log(h)
+    })
+
+    function clearScreen() {
         expressionDisplay.textContent = ''
         resultDisplay.textContent = ''
+    }
+
+    function clear () {
+        clearScreen()
+        localStorage.clear()
     }
 
     function backspace(){
@@ -56,10 +81,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Evaluate the expression and display the result
     function calculate() {
-        let expression = expressionDisplay.textContent
+        let expression = sanitizeExpression(expressionDisplay.textContent)
         if(expression.length == 0) return
-        lastResult = eval(sanitizeExpression(expression))
+        lastResult = eval(expression)
         resultDisplay.textContent = lastResult
+        let hist = {
+            'expression' : expression, 
+            'result' : lastResult
+        }
+        let currentHistory = JSON.parse(localStorage.getItem('history')) ?? []
+        currentHistory.push(hist)
+        localStorage.setItem('history',JSON.stringify(currentHistory))
     }
 
     // Sanitize the expression by removing any trailing operators before evaluation
@@ -88,11 +120,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         // If the last result is not null and the value is a number, clear the display before adding the new value
         if (lastResult !== null && !isNaN(value)) {
-           clear()
+           clearScreen()
            lastResult = null
         }
         // Append the new value to the expression display
         expressionDisplay.textContent += value
     }
 });
+
+
 
